@@ -1,0 +1,40 @@
+services:
+  # 1. Flask 애플리케이션 서비스
+  my_flask_app:
+    image: agn705/flask-test-app:v1.0
+    container_name: flask_app_container
+    ports:
+      - "9000:9000"
+    environment:
+      - DB_HOST=db_container
+      - DB_USER=adam
+      - DB_PASSWORD=1234
+      - DB_NAME=my_database
+    depends_on:
+      - mydb
+    networks:
+      - app-network
+
+  # 2. MySQL 데이터베이스 서비스
+  mydb:
+    image: mysql:8.0
+    container_name: db_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: adam
+      MYSQL_PASSWORD: "1234"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
