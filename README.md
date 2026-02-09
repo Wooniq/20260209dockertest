@@ -34,3 +34,8 @@ docker pull agn705/flask-test-app:v1.0
 
 ## 4. 위 이미지와 DB 1개 묶어서 컨테이너로 만드는 docker-compose.yaml 작성
 
+1. MySQL 접속 테스트 (DBeaver) <br>
+<img width="307" height="119" alt="image" src="https://github.com/user-attachments/assets/2666913a-3c4b-4233-8f9a-ed61fe788f9a" /><br>
+
+2. Flask 앱 접속 테스트 <br>
+   <img width="498" height="207" alt="image" src="https://github.com/user-attachments/assets/44794ca0-b57c-4d55-8980-615cfc5fd1e0" /><br>
